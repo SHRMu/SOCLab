@@ -13,7 +13,7 @@ The following steps can be considered to help your SOCLab with SpartanMC SOC-Kit
 
 Under project directory:
 - make newfirmware +path=firmware
-(module load jdk/OpenJDK11/11.0.1)
+- (module load jdk/OpenJDK11/11.0.1)
 - make jconfig
 
 ##### Customizing the SpartanMC System #####
