@@ -30,7 +30,7 @@ Select components:
 
  FILE * stdout = &UART_LIGHT_0_FILE;   
 
- void main() {	 
+ void main() {   
 	printf("hello world\n");   
  }   
 
