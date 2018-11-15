@@ -25,13 +25,13 @@ Select components:
 
 ##### Example Code #####
 
-#include "peripherals.h"
-#include <stdio.h>
+#include "peripherals.h"\n
+#include <stdio.h>\n
 
 FILE * stdout = &UART_LIGHT_0_FILE;
 
-void main() { 
-	printf("hello world\n");
+void main() {\n
+	printf("hello world\n");\n
 }
 
 ##### Connect to USB UART port #####
