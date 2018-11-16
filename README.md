@@ -1,6 +1,6 @@
 # SOCLab
 
-SOCLab Code for the Lecture RS2 in TU Darmstadt
+Code for the Lecture RS2 in TU Darmstadt
 
 The following steps can be considered to help your SOCLab with SpartanMC SOC-Kit
 
@@ -42,3 +42,13 @@ Select components:
 ##### Load the Code #####
 
 - make all program (make updateRam program)
+
+components usded in the practice:
+
+- i2c_master_0
+- port_out_0
+- spi_master_0
+
+(more details can be referred to the configuration file SOCLab.jc3)
+
+##### Problems can occur #####
