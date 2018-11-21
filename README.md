@@ -48,6 +48,7 @@ components usded in the practice:
 - i2c_master_0
 - port_out_0
 - spi_master_0
+- interrupt_controller_0
 
 (more details can be referred to the configuration file SOCLab.jc3)
 
