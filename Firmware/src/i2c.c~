@@ -16,7 +16,7 @@ void i2c_peri_write(i2c_master_regs_t *i2c) {
 	//send measurement command, to set the measurement unit to centimeter with 0x51
 	i2c->data[2] = 0x51;
 	//start to send 3 bytes, and then stop
-	i2c->cmd = I2C_CMD_STA|I2C_CMD_STO|(3 << 3);
+	i2c->cmd = I2C_CTRL_INTR_EN|I2C_CMD_STA|I2C_CMD_STO|(3 << 3);
 
 	//check if the current transfer has finished			
 	while(i2c->stat & I2C_STA_TIP);	

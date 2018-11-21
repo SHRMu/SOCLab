@@ -22,7 +22,7 @@ unsigned int get_distance_SRF02(){
 		//start measurement
 		i2c_peri_write(&I2C_MASTER_0);	
 		//wait for at least 65ms		
-		sleep(130000);
+		//sleep(130000);
 		//test software revision changed or not
 		while(i2c_peri_read(&I2C_MASTER_0) > 254);
 		//get the distance result		
