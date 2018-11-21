@@ -5,6 +5,10 @@
 
 void i2c_master_enable(i2c_master_regs_t *i2c, unsigned char div);
 int i2c_master_write(i2c_master_regs_t *i2c, unsigned char address, unsigned char reg, unsigned char data);
+
+void i2c_master_handle_interrupt(i2c_master_regs_t *i2c);
+void i2c_master_write_interrupt(i2c_master_regs_t *i2c, unsigned char address, unsigned char reg, unsigned char data);
+
 unsigned char i2c_master_read(i2c_master_regs_t *i2c, unsigned char address, unsigned char reg, unsigned char *data);
 unsigned char i2c_master_read2bytes(i2c_master_regs_t *i2c, unsigned char address, unsigned char reg, unsigned int *data);
 

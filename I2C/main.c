@@ -4,6 +4,7 @@
 #include <uart.h>
 #include <stdio.h>
 #include <sleep.h>
+#include <interrupt.h>
 
 #include "i2c.h"
 
@@ -11,7 +12,8 @@ void test_SFR02() {
 
 	int dis = 0;
 	//while(1){
-	for(int i=0; i<100; i++) {
+	interrupt_enable();
+	for(int i=0; i<5; i++) {
 		SRF02_start_measurement();			//Start measurement
 		sleep(130000);
 		printf("read revision...\n");			
@@ -21,6 +23,7 @@ void test_SFR02() {
 		printf("distance: %d\n", dis);
 	}
 }
+
 
 FILE * stdout = &UART_LIGHT_0_FILE;
 
@@ -33,3 +36,11 @@ void main() {
 	test_SFR02();
 
 }
+
+ISR(0)(){
+	printf("interrupt starting ....");
+	sleep(130000);
+}
+
+
+
