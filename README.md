@@ -51,4 +51,6 @@ components usded in the practice:
 
 (more details can be referred to the configuration file SOCLab.jc3)
 
-##### Problems can occur #####
+##### Problems may occur #####
+permmission denied -> restart the SP601 device
+
