@@ -15,7 +15,7 @@
                 <jc3:parameter name="INSTANTIATE_BUFGFX">NO</jc3:parameter>
                 <jc3:parameter name="INSTANTIATE_BUFGS">NO</jc3:parameter>
                 <jc3:parameter name="INSTANTIATE_BUFGS2">NO</jc3:parameter>
-                <jc3:parameter name="RESET_LEVEL">HIGH_ACTIVE</jc3:parameter>
+                <jc3:parameter name="RESET_LEVEL">LOW_ACTIVE</jc3:parameter>
             </jc3:parameters>
             <jc3:ports>
                 <jc3:port name="/clk_xilinx_0.clk1"/>
@@ -38,7 +38,7 @@
         <jc3:pin termination="none" inverted="false" direction="input" name="#CLOCK_SMACLK_P"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#CLOCK_SYSCLK_N"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#CLOCK_SYSCLK_P"/>
-        <jc3:pin ioStd="LVCMOS25" termination="none" inverted="false" direction="input" name="#CLOCK_USER"/>
+        <jc3:pin termination="none" inverted="false" direction="input" name="#CLOCK_USER"/>
         <jc3:pin ioStd="SSTL18_II" termination="none" inverted="false" direction="input" name="#DDR2_A0"/>
         <jc3:pin ioStd="SSTL18_II" termination="none" inverted="false" direction="input" name="#DDR2_A1"/>
         <jc3:pin ioStd="SSTL18_II" termination="none" inverted="false" direction="input" name="#DDR2_A10"/>
@@ -121,14 +121,14 @@
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_CLK0_M2C_P"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_CLK1_M2C_N"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_CLK1_M2C_P"/>
-        <jc3:pin ioStd="LVCMOS25" termination="none" inverted="false" direction="output" name="#FMC_LA00_CC_N"/>
+        <jc3:pin termination="none" inverted="false" direction="output" name="#FMC_LA00_CC_N"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_LA00_CC_P"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_LA01_CC_N"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_LA01_CC_P"/>
-        <jc3:pin ioStd="LVCMOS25" termination="none" inverted="false" direction="output" name="#FMC_LA02_N"/>
-        <jc3:pin ioStd="LVCMOS25" termination="none" inverted="false" direction="output" name="#FMC_LA02_P"/>
+        <jc3:pin termination="none" inverted="false" direction="output" name="#FMC_LA02_N"/>
+        <jc3:pin termination="none" inverted="false" direction="output" name="#FMC_LA02_P"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_LA03_N"/>
-        <jc3:pin ioStd="LVCMOS25" termination="none" inverted="false" direction="output" name="#FMC_LA03_P"/>
+        <jc3:pin termination="none" inverted="false" direction="output" name="#FMC_LA03_P"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_LA04_N"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_LA04_P"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_LA05_N"/>
@@ -177,7 +177,7 @@
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_LA26_P"/>
         <jc3:pin termination="none" inverted="false" direction="inout" name="#FMC_LA27_N"/>
         <jc3:pin termination="none" inverted="false" direction="inout" name="#FMC_LA27_P"/>
-        <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_LA28_N"/>
+        <jc3:pin termination="none" inverted="false" direction="inout" name="#FMC_LA28_N"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_LA28_P"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_LA29_N"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#FMC_LA29_P"/>
@@ -218,7 +218,7 @@
         <jc3:pin termination="none" inverted="false" direction="input" name="#GPIO_BUTTON1"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#GPIO_BUTTON2"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#GPIO_BUTTON3"/>
-        <jc3:pin ioStd="LVCMOS25" termination="none" inverted="false" direction="input" name="#GPIO_CPU_RESET"/>
+        <jc3:pin termination="none" inverted="true" direction="input" name="#GPIO_CPU_RESET"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#GPIO_HDR0"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#GPIO_HDR1"/>
         <jc3:pin termination="none" inverted="false" direction="input" name="#GPIO_HDR2"/>
@@ -269,8 +269,8 @@
         <jc3:pin termination="none" inverted="false" direction="input" name="#SPI_CS_B"/>
         <jc3:pin termination="none" inverted="false" direction="output" name="#USB_1_CTS"/>
         <jc3:pin termination="none" inverted="false" direction="output" name="#USB_1_RTS"/>
-        <jc3:pin ioStd="LVCMOS25" termination="none" inverted="false" direction="output" name="#USB_1_RX"/>
-        <jc3:pin ioStd="LVCMOS25" termination="none" inverted="false" direction="input" name="#USB_1_TX"/>
+        <jc3:pin termination="none" inverted="false" direction="output" name="#USB_1_RX"/>
+        <jc3:pin termination="none" inverted="false" direction="input" name="#USB_1_TX"/>
     </jc3:pins>
     <jc3:subsystems>
         <jc3:subsystem moduleDescriptionName="spartanmc" name="spartanmc_0">
@@ -288,7 +288,6 @@
                 <jc3:parameter name="COUNT_EVENTCOUNTERS">2</jc3:parameter>
                 <jc3:parameter name="COUNT_WATCHPOINTS">4</jc3:parameter>
                 <jc3:parameter name="DISABLE_STALLS">1</jc3:parameter>
-                <jc3:parameter name="EXTERNAL_STALL">0</jc3:parameter>
                 <jc3:parameter name="FREQUENCY">0</jc3:parameter>
                 <jc3:parameter name="HARDWARE_DEBUGGING">0</jc3:parameter>
                 <jc3:parameter name="HARDWARE_MUL">1</jc3:parameter>
@@ -298,6 +297,8 @@
                 <jc3:parameter name="SHOW_INSTR">1</jc3:parameter>
                 <jc3:parameter name="SINGLE_SHIFT">0</jc3:parameter>
                 <jc3:parameter name="SINGLE_STEP_TRAP">3</jc3:parameter>
+                <jc3:parameter name="STOP_SIM_ON_PERI_S9">1</jc3:parameter>
+                <jc3:parameter name="STOP_SIM_ON_X">1</jc3:parameter>
                 <jc3:parameter name="WIDTH_CYCLECOUNTER">36</jc3:parameter>
                 <jc3:parameter name="WIDTH_EVENTCOUNTER">36</jc3:parameter>
                 <jc3:parameter name="WTCHPT_TRAP">2</jc3:parameter>
@@ -311,7 +312,6 @@
                 <jc3:port name="/spartanmc_0.intr_enable"/>
                 <jc3:port name="/spartanmc_0.ir_return"/>
                 <jc3:port name="/spartanmc_0.locked"/>
-                <jc3:port name="/spartanmc_0.stall_ext"/>
                 <jc3:port name="/spartanmc_0.step"/>
                 <jc3:port name="/spartanmc_0.step_en_off"/>
                 <jc3:port name="/spartanmc_0.step_en_on"/>
@@ -350,6 +350,17 @@
                         <jc3:port name="/spartanmc_0/uart_light_0.tx_chain_i"/>
                     </jc3:ports>
                 </jc3:peripheral>
+                <jc3:peripheral moduleDescriptionName="i2c_master" name="i2c_master_0">
+                    <jc3:buses>
+                        <jc3:bus name="/spartanmc_0/i2c_master_0@peri-bus"/>
+                    </jc3:buses>
+                    <jc3:parameters/>
+                    <jc3:ports>
+                        <jc3:port name="/spartanmc_0/i2c_master_0.intr"/>
+                        <jc3:port name="/spartanmc_0/i2c_master_0.scl"/>
+                        <jc3:port name="/spartanmc_0/i2c_master_0.sda"/>
+                    </jc3:ports>
+                </jc3:peripheral>
                 <jc3:peripheral moduleDescriptionName="spi_master" name="spi_master_0">
                     <jc3:buses>
                         <jc3:bus name="/spartanmc_0/spi_master_0@peri-bus"/>
@@ -378,25 +389,27 @@
                         <jc3:port name="/spartanmc_0/port_out_0.pin"/>
                     </jc3:ports>
                 </jc3:peripheral>
-                <jc3:peripheral moduleDescriptionName="i2c_master" name="i2c_master_0">
+                <jc3:peripheral moduleDescriptionName="intctrl" name="intctrl_0">
                     <jc3:buses>
-                        <jc3:bus name="/spartanmc_0/i2c_master_0@peri-bus"/>
+                        <jc3:bus name="/spartanmc_0/intctrl_0@peri-bus"/>
                     </jc3:buses>
-                    <jc3:parameters/>
+                    <jc3:parameters>
+                        <jc3:parameter name="IR_SOURCES">1</jc3:parameter>
+                    </jc3:parameters>
                     <jc3:ports>
-                        <jc3:port name="/spartanmc_0/i2c_master_0.intr"/>
-                        <jc3:port name="/spartanmc_0/i2c_master_0.scl"/>
-                        <jc3:port name="/spartanmc_0/i2c_master_0.sda"/>
+                        <jc3:port name="/spartanmc_0/intctrl_0.intr_in"/>
+                        <jc3:port name="/spartanmc_0/intctrl_0.intr_out"/>
                     </jc3:ports>
                 </jc3:peripheral>
             </jc3:childModules>
         </jc3:subsystem>
     </jc3:subsystems>
-    <jc3:target descriptionName="SP601" targetDevice="XC6SLX16-2CSG324" toolchain="xilinx">
+    <jc3:target descriptionName="SP601" targetDevice="XC6SLX16-2CSG324" toolchain="ise">
         <jc3:attribute name="ucData"></jc3:attribute>
         <jc3:attribute name="ucFile"></jc3:attribute>
         <jc3:toolchain>
             <jc3:toolchainParam name="BITGEN" isDefault="true">-m -l</jc3:toolchainParam>
+            <jc3:toolchainParam name="DEFINES" isDefault="true"></jc3:toolchainParam>
             <jc3:toolchainParam name="MAP" isDefault="true">-timing -p XC6SLX16-2CSG324 -logic_opt on -pr b -register_duplication -xe n -ol high</jc3:toolchainParam>
             <jc3:toolchainParam name="NETGEN" isDefault="true">-s 3</jc3:toolchainParam>
             <jc3:toolchainParam name="PAR" isDefault="true">-ol high -xe n</jc3:toolchainParam>
@@ -409,6 +422,7 @@
         <jc3:busConnection portA="/spartanmc_0@memcode-bus" portB="/spartanmc_0/spartanmc_mem_local_0@code-bus"/>
         <jc3:busConnection portA="/spartanmc_0@memdata-bus" portB="/spartanmc_0/spartanmc_mem_local_0@data-bus"/>
         <jc3:busConnection portA="/spartanmc_0@peri-bus" portB="/spartanmc_0/i2c_master_0@peri-bus"/>
+        <jc3:busConnection portA="/spartanmc_0@peri-bus" portB="/spartanmc_0/intctrl_0@peri-bus"/>
         <jc3:busConnection portA="/spartanmc_0@peri-bus" portB="/spartanmc_0/port_out_0@peri-bus"/>
         <jc3:busConnection portA="/spartanmc_0@peri-bus" portB="/spartanmc_0/spi_master_0@peri-bus"/>
         <jc3:busConnection portA="/spartanmc_0@peri-bus" portB="/spartanmc_0/uart_light_0@peri-bus"/>
@@ -420,7 +434,9 @@
         <jc3:connection portA="/clk_xilinx_0.reset" portB="#GPIO_CPU_RESET"/>
         <jc3:connection portA="/spartanmc_0/i2c_master_0.scl" portB="#FMC_LA27_N"/>
         <jc3:connection portA="/spartanmc_0/i2c_master_0.sda" portB="#FMC_LA27_P"/>
-        <jc3:connection portA="/spartanmc_0/port_out_0.pin" portB="#FMC_LA00_CC_N"/>
+        <jc3:connection portA="/spartanmc_0/intctrl_0.intr_in" portB="/spartanmc_0/i2c_master_0.intr"/>
+        <jc3:connection portA="/spartanmc_0/intctrl_0.intr_out" portB="/spartanmc_0.intr"/>
+        <jc3:partial-connection startA="0" startB="0" width="1" portA="/spartanmc_0/port_out_0.pin" portB="#FMC_LA00_CC_N"/>
         <jc3:connection portA="/spartanmc_0/spi_master_0.clk_spi" portB="/clk_xilinx_0.clkfx"/>
         <jc3:connection portA="/spartanmc_0/spi_master_0.mosi" portB="#FMC_LA02_N"/>
         <jc3:connection portA="/spartanmc_0/spi_master_0.sclk" portB="#FMC_LA03_P"/>

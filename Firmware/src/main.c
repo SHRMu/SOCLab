@@ -11,25 +11,87 @@
 #include "spi_local.h"
 #include "oled_25664.h"
 
+#define	I2C_ADDR_SEQ1	0xE0
+#define	I2C_ADDR_SEQ2	0xE2
+#define	I2C_ADDR_SEQ3	0xE4
+
+#define STATUS_A 0
+#define STATUS_B 1
+#define STATUS_C 2
+
+uint8_t currentStatus = STATUS_A;
+
+unsigned int fms_app(){
+
+	unsigned int wirte_A = 0;
+	unsigned int wirte_B = 0;
+	unsigned int wirte_C = 0;
+
+	switch(currentStatus){
+	    case STATUS_A:
+	        i2c_peri_write(&I2C_MASTER_0, I2C_ADDR_SEQ1);
+	        if( wirte_A == 0){ 
+	        		currentStatus = STATUE_B; 
+	        		wirte_A = 1;
+	        }else{
+        		while(i2c_peri_read(&I2C_MASTER_0, I2C_ADDR_SEQ1) > 254);
+				//get the distance result		
+				dis = i2c_peri_read2bytes(&I2C_MASTER_0, I2C_ADDR_SEQ1);
+				wirte_A = 0;
+        	}
+	        break;
+	    case STATUS_B: 
+	        i2c_peri_write(&I2C_MASTER_0, I2C_ADDR_SEQ2);
+	        if(wirte_B == 0 ){ 
+	        	currentStatus = STATUE_C; 
+	        	wirte_B = 1;
+	        }else{
+        		while(i2c_peri_read(&I2C_MASTER_0, I2C_ADDR_SEQ2) > 254);
+				//get the distance result		
+				dis = i2c_peri_read2bytes(&I2C_MASTER_0, I2C_ADDR_SEQ2);
+				wirte_B = 0;
+        	}
+	        break;
+	    case STATUS_C:  
+	        i2c_peri_write(&I2C_MASTER_0, I2C_ADDR_SEQ2);
+	        if(wirte_C == 0){ 
+	        	currentStatus = STATUE_A; 
+	        	wirte_C = 1;
+	        }else{
+	        	while(i2c_peri_read(&I2C_MASTER_0, I2C_ADDR_SEQ3) > 254);
+				//get the distance result		
+				dis = i2c_peri_read2bytes(&I2C_MASTER_0, I2C_ADDR_SEQ3);
+				wirte_C = 0;
+	        }
+	        break;
+	    default:
+	        currentStatus = STATUE_A;
+    }
+
+}
 
 unsigned int get_distance_SRF02(){
 	
 	unsigned int dis = 0;
 	unsigned int disArray[20];
 	unsigned int dis_result = 0;
+	unsigned int k = 0;
 
-	for(int i=0; i<25; i++) {
+	while(1){
+	//for(int i=0; i<25; i++) {
 		//start measurement
-		i2c_peri_write(&I2C_MASTER_0);	
+		i2c_peri_write(&I2C_MASTER_0, I2C_ADDR_SEQ1);
 		//wait for at least 65ms		
 		sleep(130000);
 		//test software revision changed or not
-		while(i2c_peri_read(&I2C_MASTER_0) > 254);
+		while(i2c_peri_read(&I2C_MASTER_0, I2C_ADDR_SEQ1) > 254);
 		//get the distance result		
-		dis = i2c_peri_read2bytes(&I2C_MASTER_0);
+		dis = i2c_peri_read2bytes(&I2C_MASTER_0, I2C_ADDR_SEQ1);
 		//printf("distance: %d\n", dis);
 		//discard everytime first 5 results, because in the begining is not stable	
 		disArray[(i+1)%20] = dis;
+		k += 1;
+		if ( k > 25 ) break;
 	}
 
 	// the smooth function is following
@@ -167,13 +229,14 @@ void main(){
 	//prescaler = (peripheral_clock / (5 * desired_SCL)) -1
 	//SCL auf max. 40 kHz, wobei die peripheral_clock der sys_clk von 60 MHz
 	//60MHz/(5*40KHz)-1 = 299
-	i2c_peri_enable(&I2C_MASTER_0, 299);
+	i2c_peri_enable(&I2C_MASTER_0, 299); // put outside the while loop
 	//test_I2C_SRF02();
 
 	/* ----------spi_part---------- */
 	spi_peri_enable(&SPI_MASTER_0);
 	//select before using the oled display
 	spi_peri_select(&SPI_MASTER_0);
+
 	show_distance_OLED();
 	spi_peri_deselect(&SPI_MASTER_0);
 	printf("\n\n-------------------- next loop -----------------------\n\n");
@@ -182,5 +245,6 @@ void main(){
 }
 
 ISR(0)(){
-	sleep(13000);
+	printf("i2c interrupt enable !!!\n");
+	//sleep(13000);
 }
